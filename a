@@ -1,0 +1,308 @@
+diff --git a/msm8916-common/Android.mk b/msm8916-common/Android.mk
+index 02b52443..3f4383dd 100644
+--- a/msm8916-common/Android.mk
++++ b/msm8916-common/Android.mk
+@@ -53,51 +53,6 @@ LOCAL_PRIVILEGED_MODULE := true
+ include $(BUILD_PREBUILT)
+ 
+ include $(CLEAR_VARS)
+-LOCAL_MODULE := ims
+-LOCAL_MODULE_OWNER := motorola
+-LOCAL_SRC_FILES := proprietary/vendor/app/ims/ims.apk
+-LOCAL_CERTIFICATE := platform
+-LOCAL_MODULE_TAGS := optional
+-LOCAL_MODULE_CLASS := APPS
+-LOCAL_DEX_PREOPT := false
+-LOCAL_MODULE_SUFFIX := .apk
+-LOCAL_PROPRIETARY_MODULE := true
+-include $(BUILD_PREBUILT)
+-
+-include $(CLEAR_VARS)
+-LOCAL_MODULE := imssettings
+-LOCAL_MODULE_OWNER := motorola
+-LOCAL_SRC_FILES := proprietary/vendor/app/imssettings/imssettings.apk
+-LOCAL_CERTIFICATE := platform
+-LOCAL_MODULE_TAGS := optional
+-LOCAL_MODULE_CLASS := APPS
+-LOCAL_DEX_PREOPT := false
+-LOCAL_MODULE_SUFFIX := .apk
+-LOCAL_PROPRIETARY_MODULE := true
+-include $(BUILD_PREBUILT)
+-
+-include $(CLEAR_VARS)
+-LOCAL_MODULE := imscmlibrary
+-LOCAL_MODULE_OWNER := motorola
+-LOCAL_SRC_FILES := proprietary/framework/imscmlibrary.jar
+-LOCAL_CERTIFICATE := platform
+-LOCAL_MODULE_TAGS := optional
+-LOCAL_MODULE_CLASS := JAVA_LIBRARIES
+-LOCAL_MODULE_SUFFIX := .jar
+-include $(BUILD_PREBUILT)
+-
+-include $(CLEAR_VARS)
+-LOCAL_MODULE := qti-vzw-ims-internal
+-LOCAL_MODULE_OWNER := motorola
+-LOCAL_SRC_FILES := proprietary/vendor/framework/qti-vzw-ims-internal.jar
+-LOCAL_CERTIFICATE := platform
+-LOCAL_MODULE_TAGS := optional
+-LOCAL_MODULE_CLASS := JAVA_LIBRARIES
+-LOCAL_PROPRIETARY_MODULE := true
+-LOCAL_MODULE_SUFFIX := .jar
+-include $(BUILD_PREBUILT)
+-
+-include $(CLEAR_VARS)
+ LOCAL_MODULE := qcnvitems
+ LOCAL_MODULE_OWNER := motorola
+ LOCAL_SRC_FILES := proprietary/framework/qcnvitems.jar
+diff --git a/msm8916-common/msm8916-common-vendor.mk b/msm8916-common/msm8916-common-vendor.mk
+index 927edc6f..d5ff5083 100644
+--- a/msm8916-common/msm8916-common-vendor.mk
++++ b/msm8916-common/msm8916-common-vendor.mk
+@@ -48,8 +48,6 @@ PRODUCT_COPY_FILES += \
+     vendor/motorola/msm8916-common/proprietary/etc/firmware/venus.mdt:system/etc/firmware/venus.mdt \
+     vendor/motorola/msm8916-common/proprietary/etc/flp.conf:system/etc/flp.conf \
+     vendor/motorola/msm8916-common/proprietary/etc/gps.conf:system/etc/gps.conf \
+-    vendor/motorola/msm8916-common/proprietary/etc/permissions/imscm.xml:system/etc/permissions/imscm.xml \
+-    vendor/motorola/msm8916-common/proprietary/etc/permissions/qti-vzw-ims-internal.xml:system/etc/permissions/qti-vzw-ims-internal.xml \
+     vendor/motorola/msm8916-common/proprietary/etc/permissions/qcnvitems.xml:system/etc/permissions/qcnvitems.xml \
+     vendor/motorola/msm8916-common/proprietary/etc/permissions/qcrilhook.xml:system/etc/permissions/qcrilhook.xml \
+     vendor/motorola/msm8916-common/proprietary/etc/sap.conf:system/etc/sap.conf \
+@@ -63,11 +61,6 @@ PRODUCT_COPY_FILES += \
+     vendor/motorola/msm8916-common/proprietary/lib/libqmimotext.so:system/lib/libqmimotext.so \
+     vendor/motorola/msm8916-common/proprietary/lib/libprotobuf-cpp-N.so:system/lib/libprotobuf-cpp-N.so \
+     vendor/motorola/msm8916-common/proprietary/vendor/bin/thermal-engine:system/vendor/bin/thermal-engine \
+-    vendor/motorola/msm8916-common/proprietary/bin/imscmservice:system/vendor/bin/imscmservice \
+-    vendor/motorola/msm8916-common/proprietary/bin/imsdatadaemon:system/vendor/bin/imsdatadaemon \
+-    vendor/motorola/msm8916-common/proprietary/bin/imsqmidaemon:system/vendor/bin/imsqmidaemon \
+-    vendor/motorola/msm8916-common/proprietary/bin/imsrcsd:system/vendor/bin/imsrcsd \
+-    vendor/motorola/msm8916-common/proprietary/bin/ims_rtp_daemon:system/vendor/bin/ims_rtp_daemon \
+     vendor/motorola/msm8916-common/proprietary/vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti:system/vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti \
+     vendor/motorola/msm8916-common/proprietary/vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc:system/vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc \
+     vendor/motorola/msm8916-common/proprietary/vendor/lib/com.qualcomm.qti.ant@1.0_vendor.so:system/vendor/lib/com.qualcomm.qti.ant@1.0_vendor.so \
+@@ -115,33 +108,6 @@ PRODUCT_COPY_FILES += \
+     vendor/motorola/msm8916-common/proprietary/vendor/lib/libbtnv.so:system/vendor/lib/libbtnv.so \
+     vendor/motorola/msm8916-common/proprietary/vendor/lib/libc2d30-a3xx.so:system/vendor/lib/libc2d30-a3xx.so \
+     vendor/motorola/msm8916-common/proprietary/vendor/lib/libc2d30-a4xx.so:system/vendor/lib/libc2d30-a4xx.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/com.qualcomm.qti.imscmservice@1.0.so:system/vendor/lib/com.qualcomm.qti.imscmservice@1.0.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/lib-dplmedia.so:system/vendor/lib/lib-dplmedia.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/lib-ims-rcscmjni.so:system/vendor/lib/lib-ims-rcscmjni.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/lib-imsSDP.so:system/vendor/lib/lib-imsSDP.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/lib-imscamera.so:system/vendor/lib/lib-imscamera.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/lib-imsdpl.so:system/vendor/lib/lib-imsdpl.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/lib-imsqimf.so:system/vendor/lib/lib-imsqimf.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/lib-imsrcs.so:system/vendor/lib/lib-imsrcs.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/lib-imsrcscm.so:system/vendor/lib/lib-imsrcscm.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/lib-imsrcscmclient.so:system/vendor/lib/lib-imsrcscmclient.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/lib-imsrcscmservice.so:system/vendor/lib/lib-imsrcscmservice.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/lib-imss.so:system/vendor/lib/lib-imss.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/lib-imsvideocodec.so:system/vendor/lib/lib-imsvideocodec.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/lib-imsvt.so:system/vendor/lib/lib-imsvt.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/lib-imsvtextutils.so:system/vendor/lib/lib-imsvtextutils.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/lib-imsvtutils.so:system/vendor/lib/lib-imsvtutils.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/lib-imsxml.so:system/vendor/lib/lib-imsxml.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/lib-rcsimssjni.so:system/vendor/lib/lib-rcsimssjni.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/lib-rcsjni.so:system/vendor/lib/lib-rcsjni.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/lib-rtpcommon.so:system/vendor/lib/lib-rtpcommon.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/lib-rtpcore.so:system/vendor/lib/lib-rtpcore.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/lib-rtpdaemoninterface.so:system/vendor/lib/lib-rtpdaemoninterface.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/lib-rtpsl.so:system/vendor/lib/lib-rtpsl.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/libimscamera_jni.so:system/vendor/lib/libimscamera_jni.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/libimsmedia_jni.so:system/vendor/lib/libimsmedia_jni.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/librcc.so:system/vendor/lib/librcc.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/vendor.qti.imsrtpservice@1.0.so:system/vendor/lib/vendor.qti.imsrtpservice@1.0.so \
+     vendor/motorola/msm8916-common/proprietary/vendor/lib/libcneapiclient.so:system/vendor/lib/libcneapiclient.so \
+     vendor/motorola/msm8916-common/proprietary/vendor/lib/libconfigdb.so:system/vendor/lib/libconfigdb.so \
+     vendor/motorola/msm8916-common/proprietary/vendor/lib/libdiag.so:system/vendor/lib/libdiag.so \
+@@ -181,7 +147,6 @@ PRODUCT_COPY_FILES += \
+     vendor/motorola/msm8916-common/proprietary/vendor/lib/libqmi_encdec.so:system/vendor/lib/libqmi_encdec.so \
+     vendor/motorola/msm8916-common/proprietary/vendor/lib/libqmiservices.so:system/vendor/lib/libqmiservices.so \
+     vendor/motorola/msm8916-common/proprietary/vendor/lib/libril-qc-ltedirectdisc.so:system/vendor/lib/libril-qc-ltedirectdisc.so \
+-    vendor/motorola/msm8916-common/proprietary/vendor/lib/libril-qc-qmi-1.so:system/vendor/lib/libril-qc-qmi-1.so \
+     vendor/motorola/msm8916-common/proprietary/vendor/lib/libril-qc-radioconfig.so:system/vendor/lib/libril-qc-radioconfig.so \
+     vendor/motorola/msm8916-common/proprietary/vendor/lib/libril-qcril-hook-oem.so:system/vendor/lib/libril-qcril-hook-oem.so \
+     vendor/motorola/msm8916-common/proprietary/vendor/lib/librilqmiservices.so:system/vendor/lib/librilqmiservices.so \
+@@ -212,9 +177,5 @@ PRODUCT_PACKAGES += \
+     vendor.qti.hardware.fm@1.0 \
+     TimeService \
+     qcrilmsgtunnel \
+-    ims \
+-    imssettings \
+-    imscmlibrary \
+-    qti-vzw-ims-internal \
+     qcnvitems \
+     qcrilhook
+diff --git a/msm8916-common/proprietary/bin/ims_rtp_daemon b/msm8916-common/proprietary/bin/ims_rtp_daemon
+deleted file mode 100644
+index 25417824..00000000
+Binary files a/msm8916-common/proprietary/bin/ims_rtp_daemon and /dev/null differ
+diff --git a/msm8916-common/proprietary/bin/imscmservice b/msm8916-common/proprietary/bin/imscmservice
+deleted file mode 100644
+index 0c094be7..00000000
+Binary files a/msm8916-common/proprietary/bin/imscmservice and /dev/null differ
+diff --git a/msm8916-common/proprietary/bin/imsdatadaemon b/msm8916-common/proprietary/bin/imsdatadaemon
+deleted file mode 100644
+index d1df445d..00000000
+Binary files a/msm8916-common/proprietary/bin/imsdatadaemon and /dev/null differ
+diff --git a/msm8916-common/proprietary/bin/imsqmidaemon b/msm8916-common/proprietary/bin/imsqmidaemon
+deleted file mode 100644
+index 7a411652..00000000
+Binary files a/msm8916-common/proprietary/bin/imsqmidaemon and /dev/null differ
+diff --git a/msm8916-common/proprietary/bin/imsrcsd b/msm8916-common/proprietary/bin/imsrcsd
+deleted file mode 100644
+index dc284698..00000000
+Binary files a/msm8916-common/proprietary/bin/imsrcsd and /dev/null differ
+diff --git a/msm8916-common/proprietary/etc/permissions/imscm.xml b/msm8916-common/proprietary/etc/permissions/imscm.xml
+deleted file mode 100644
+index 850708b4..00000000
+--- a/msm8916-common/proprietary/etc/permissions/imscm.xml
++++ /dev/null
+@@ -1,9 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<!--
+-    Copyright (c) 2014 Qualcomm Technologies, Inc.  All Rights Reserved.
+-	Qualcomm Technologies Proprietary and Confidential.
+--->
+-<permissions>
+- <library name="com.qti.ims.connectionmanager.imscmlibrary"
+-          file="/system/framework/imscmlibrary.jar"/>
+-</permissions>
+diff --git a/msm8916-common/proprietary/etc/permissions/qti-vzw-ims-internal.xml b/msm8916-common/proprietary/etc/permissions/qti-vzw-ims-internal.xml
+deleted file mode 100644
+index c1cffbd2..00000000
+--- a/msm8916-common/proprietary/etc/permissions/qti-vzw-ims-internal.xml
++++ /dev/null
+@@ -1,10 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<!---
+-    Copyright (c) 2016 Qualcomm Technologies, Inc.
+-    All Rights Reserved.
+-    Confidential and Proprietary - Qualcomm Technologies, Inc.
+- -->
+-<permissions>
+-    <library name="com.qti.vzw.ims.internal"
+-          file="/system/vendor/framework/qti-vzw-ims-internal.jar"/>
+-</permissions>
+diff --git a/msm8916-common/proprietary/vendor/app/ims/ims.apk b/msm8916-common/proprietary/vendor/app/ims/ims.apk
+deleted file mode 100644
+index b14d9242..00000000
+Binary files a/msm8916-common/proprietary/vendor/app/ims/ims.apk and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/app/imssettings/imssettings.apk b/msm8916-common/proprietary/vendor/app/imssettings/imssettings.apk
+deleted file mode 100644
+index 8f33dd85..00000000
+Binary files a/msm8916-common/proprietary/vendor/app/imssettings/imssettings.apk and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/com.qualcomm.qti.imscmservice@1.0.so b/msm8916-common/proprietary/vendor/lib/com.qualcomm.qti.imscmservice@1.0.so
+deleted file mode 100644
+index 15b0b980..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/com.qualcomm.qti.imscmservice@1.0.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/lib-dplmedia.so b/msm8916-common/proprietary/vendor/lib/lib-dplmedia.so
+deleted file mode 100644
+index 007069d2..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/lib-dplmedia.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/lib-ims-rcscmjni.so b/msm8916-common/proprietary/vendor/lib/lib-ims-rcscmjni.so
+deleted file mode 100644
+index 769b4b53..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/lib-ims-rcscmjni.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/lib-imsSDP.so b/msm8916-common/proprietary/vendor/lib/lib-imsSDP.so
+deleted file mode 100644
+index f5b1ccd9..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/lib-imsSDP.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/lib-imscamera.so b/msm8916-common/proprietary/vendor/lib/lib-imscamera.so
+deleted file mode 100644
+index fc8c744e..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/lib-imscamera.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/lib-imsdpl.so b/msm8916-common/proprietary/vendor/lib/lib-imsdpl.so
+deleted file mode 100644
+index 98f263d0..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/lib-imsdpl.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/lib-imsqimf.so b/msm8916-common/proprietary/vendor/lib/lib-imsqimf.so
+deleted file mode 100644
+index 7a8c5f00..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/lib-imsqimf.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/lib-imsrcs.so b/msm8916-common/proprietary/vendor/lib/lib-imsrcs.so
+deleted file mode 100644
+index a2c76de3..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/lib-imsrcs.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/lib-imsrcscm.so b/msm8916-common/proprietary/vendor/lib/lib-imsrcscm.so
+deleted file mode 100644
+index 0a04d46e..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/lib-imsrcscm.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/lib-imsrcscmclient.so b/msm8916-common/proprietary/vendor/lib/lib-imsrcscmclient.so
+deleted file mode 100644
+index 9f8c9fd7..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/lib-imsrcscmclient.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/lib-imsrcscmservice.so b/msm8916-common/proprietary/vendor/lib/lib-imsrcscmservice.so
+deleted file mode 100644
+index cc53d430..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/lib-imsrcscmservice.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/lib-imss.so b/msm8916-common/proprietary/vendor/lib/lib-imss.so
+deleted file mode 100644
+index 3b7766f4..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/lib-imss.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/lib-imsvideocodec.so b/msm8916-common/proprietary/vendor/lib/lib-imsvideocodec.so
+deleted file mode 100644
+index 43985944..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/lib-imsvideocodec.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/lib-imsvt.so b/msm8916-common/proprietary/vendor/lib/lib-imsvt.so
+deleted file mode 100644
+index d3eb7e8d..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/lib-imsvt.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/lib-imsvtextutils.so b/msm8916-common/proprietary/vendor/lib/lib-imsvtextutils.so
+deleted file mode 100644
+index 0d24b107..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/lib-imsvtextutils.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/lib-imsvtutils.so b/msm8916-common/proprietary/vendor/lib/lib-imsvtutils.so
+deleted file mode 100644
+index dd7073ad..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/lib-imsvtutils.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/lib-imsxml.so b/msm8916-common/proprietary/vendor/lib/lib-imsxml.so
+deleted file mode 100644
+index ed6e1063..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/lib-imsxml.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/lib-rcsimssjni.so b/msm8916-common/proprietary/vendor/lib/lib-rcsimssjni.so
+deleted file mode 100644
+index 1670085b..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/lib-rcsimssjni.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/lib-rcsjni.so b/msm8916-common/proprietary/vendor/lib/lib-rcsjni.so
+deleted file mode 100644
+index 143f9345..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/lib-rcsjni.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/lib-rtpcommon.so b/msm8916-common/proprietary/vendor/lib/lib-rtpcommon.so
+deleted file mode 100644
+index be878f8d..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/lib-rtpcommon.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/lib-rtpcore.so b/msm8916-common/proprietary/vendor/lib/lib-rtpcore.so
+deleted file mode 100644
+index f75208f1..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/lib-rtpcore.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/lib-rtpdaemoninterface.so b/msm8916-common/proprietary/vendor/lib/lib-rtpdaemoninterface.so
+deleted file mode 100644
+index c6dc692d..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/lib-rtpdaemoninterface.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/lib-rtpsl.so b/msm8916-common/proprietary/vendor/lib/lib-rtpsl.so
+deleted file mode 100644
+index 7641bdaf..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/lib-rtpsl.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/libimscamera_jni.so b/msm8916-common/proprietary/vendor/lib/libimscamera_jni.so
+deleted file mode 100644
+index e832e5f8..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/libimscamera_jni.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/libimsmedia_jni.so b/msm8916-common/proprietary/vendor/lib/libimsmedia_jni.so
+deleted file mode 100644
+index 97c97243..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/libimsmedia_jni.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/libqmiservices.so b/msm8916-common/proprietary/vendor/lib/libqmiservices.so
+deleted file mode 100644
+index 237c06ea..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/libqmiservices.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/librcc.so b/msm8916-common/proprietary/vendor/lib/librcc.so
+deleted file mode 100644
+index bbcda19e..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/librcc.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/libril-qc-qmi-1.so b/msm8916-common/proprietary/vendor/lib/libril-qc-qmi-1.so
+deleted file mode 100644
+index 2f84399d..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/libril-qc-qmi-1.so and /dev/null differ
+diff --git a/msm8916-common/proprietary/vendor/lib/vendor.qti.imsrtpservice@1.0.so b/msm8916-common/proprietary/vendor/lib/vendor.qti.imsrtpservice@1.0.so
+deleted file mode 100644
+index 91c0897f..00000000
+Binary files a/msm8916-common/proprietary/vendor/lib/vendor.qti.imsrtpservice@1.0.so and /dev/null differ
