@@ -23,6 +23,7 @@ PRODUCT_COPY_FILES += \
     vendor/motorola/harpia/proprietary/lib/libadvalgcore.so:system/lib/libadvalgcore.so \
     vendor/motorola/harpia/proprietary/lib/libarcsoft_beautyshot.so:system/lib/libarcsoft_beautyshot.so \
     vendor/motorola/harpia/proprietary/lib/libcamerabgprocservice.so:system/lib/libcamerabgprocservice.so \
+    vendor/motorola/harpia/proprietary/lib/libmmcamera_tuning.so:system/vendor/lib/libmmcamera_tuning.so \
     vendor/motorola/harpia/proprietary/lib/libjscore.so:system/lib/libjscore.so \
     vendor/motorola/harpia/proprietary/lib/libjustshoot.so:system/lib/libjustshoot.so \
     vendor/motorola/harpia/proprietary/lib/libmm-qcamera.so:system/lib/libmm-qcamera.so \
