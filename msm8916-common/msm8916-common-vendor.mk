@@ -156,15 +156,15 @@ PRODUCT_COPY_FILES += \
     vendor/motorola/msm8916-common/proprietary/vendor/lib/soundfx/libqcvirt.so:system/vendor/lib/soundfx/libqcvirt.so \
     vendor/motorola/msm8916-common/proprietary/vendor/lib/vendor.qti.hardware.fm@1.0_vendor.so:system/vendor/lib/vendor.qti.hardware.fm@1.0_vendor.so \
     vendor/motorola/msm8916-common/proprietary/vendor/qcril.db:system/vendor/qcril.db \
-    vendor/motorola/msm8916-common/proprietary/lib/egl/eglSubDriverAndroid.so:vendor/lib/egl/eglSubDriverAndroid.so \
-    vendor/motorola/msm8916-common/proprietary/lib/egl/libEGL_adreno.so:vendor/lib/egl/libEGL_adreno.so \
-    vendor/motorola/msm8916-common/proprietary/lib/egl/libGLESv1_CM_adreno.so:vendor/lib/egl/libGLESv1_CM_adreno.so \
-    vendor/motorola/msm8916-common/proprietary/lib/egl/libGLESv2_adreno.so:vendor/lib/egl/libGLESv2_adreno.so \
-    vendor/motorola/msm8916-common/proprietary/lib/egl/libq3dtools_adreno.so:vendor/lib/egl/libq3dtools_adreno.so \
-    vendor/motorola/msm8916-common/proprietary/lib/egl/libq3dtools_esx.so:vendor/lib/egl/libq3dtools_adreno.so \
-    vendor/motorola/msm8916-common/proprietary/lib/egl/libadreno_utils.so:vendor/lib/libadreno_utils.so \
-    vendor/motorola/msm8916-common/proprietary/lib/egl/libgsl.so:vendor/lib/libgsl.so \
-    vendor/motorola/msm8916-common/proprietary/lib/egl/libllvm-glnext.so:vendor/lib/libllvm-glnext.so
+    vendor/motorola/msm8916-common/proprietary/vendor/lib/egl/eglSubDriverAndroid.so:vendor/lib/egl/eglSubDriverAndroid.so \
+    vendor/motorola/msm8916-common/proprietary/vendor/lib/egl/libEGL_adreno.so:vendor/lib/egl/libEGL_adreno.so \
+    vendor/motorola/msm8916-common/proprietary/vendor/lib/egl/libGLESv1_CM_adreno.so:vendor/lib/egl/libGLESv1_CM_adreno.so \
+    vendor/motorola/msm8916-common/proprietary/vendor/lib/egl/libGLESv2_adreno.so:vendor/lib/egl/libGLESv2_adreno.so \
+    vendor/motorola/msm8916-common/proprietary/vendor/lib/egl/libq3dtools_adreno.so:vendor/lib/egl/libq3dtools_adreno.so \
+    vendor/motorola/msm8916-common/proprietary/vendor/lib/egl/libq3dtools_esx.so:vendor/lib/egl/libq3dtools_adreno.so \
+    vendor/motorola/msm8916-common/proprietary/vendor/lib/egl/libadreno_utils.so:vendor/lib/libadreno_utils.so \
+    vendor/motorola/msm8916-common/proprietary/vendor/lib/egl/libgsl.so:vendor/lib/libgsl.so \
+    vendor/motorola/msm8916-common/proprietary/vendor/lib/egl/libllvm-glnext.so:vendor/lib/libllvm-glnext.so
 
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.fm@1.0 \
