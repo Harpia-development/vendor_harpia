@@ -26,6 +26,7 @@ PRODUCT_COPY_FILES += \
     vendor/motorola/msm8916-common/proprietary/bin/rmt_storage:system/bin/rmt_storage \
     vendor/motorola/msm8916-common/proprietary/bin/stml0xx:system/bin/stml0xx \
     vendor/motorola/msm8916-common/proprietary/bin/time_daemon:system/bin/time_daemon \
+    vendor/motorola/msm8916-common/proprietary/bin/pm-service:system/bin/pm-service \
     vendor/motorola/msm8916-common/proprietary/etc/data/dsi_config.xml:system/etc/data/dsi_config.xml \
     vendor/motorola/msm8916-common/proprietary/etc/data/netmgr_config.xml:system/etc/data/netmgr_config.xml \
     vendor/motorola/msm8916-common/proprietary/etc/data/qmi_config.xml:system/etc/data/qmi_config.xml \
@@ -84,6 +85,8 @@ PRODUCT_COPY_FILES += \
     vendor/motorola/msm8916-common/proprietary/vendor/lib/egl/libq3dtools_adreno.so:system/vendor/lib/egl/libq3dtools_adreno.so \
     vendor/motorola/msm8916-common/proprietary/vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so:system/vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so \
     vendor/motorola/msm8916-common/proprietary/vendor/lib/hw/vendor.qti.hardware.fm@1.0-impl.so:system/vendor/lib/hw/vendor.qti.hardware.fm@1.0-impl.so \
+    vendor/motorola/msm8916-common/proprietary/vendor/lib/hw/keystore.msm8916.so:system/vendor/lib/hw/keystore.msm8916.so \
+    vendor/motorola/msm8916-common/proprietary/vendor/lib/hw/copybit.msm8916.so:system/vendor/lib/hw/copybit.msm8916.so \
     vendor/motorola/msm8916-common/proprietary/vendor/lib/libC2D2.so:system/vendor/lib/libC2D2.so \
     vendor/motorola/msm8916-common/proprietary/vendor/lib/libCB.so:system/vendor/lib/libCB.so \
     vendor/motorola/msm8916-common/proprietary/vendor/lib/libDiagService.so:system/vendor/lib/libDiagService.so \
